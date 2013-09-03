@@ -34,7 +34,7 @@ end
 pkgdir(dep) = dep.context.dir
 depsdir(dep) = joinpath(pkgdir(dep),"deps")
 usrdir(dep) = joinpath(depsdir(dep),"usr")
-libdir(dep) = joinpath(usrdir(dep),"lib")
+libdir(dep) = haskey(dep.properties,:libdir) ? dep.properties[:libdir] : joinpath(usrdir(dep),"lib")
 bindir(dep) = joinpath(usrdir(dep),"bin")
 includedir(dep) = joinpath(usrdir(dep),"include")
 builddir(dep) = joinpath(depsdir(dep),"builds")
